@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".BatchAdd"></activity>
+        <activity android:name=".StudentAdd"></activity>
+        <activity android:name=".BatchAdd" />
         <activity android:name=".Admin" />
         <activity android:name=".MainActivity">
             <intent-filter>
