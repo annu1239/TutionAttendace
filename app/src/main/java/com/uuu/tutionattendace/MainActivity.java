@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
                 if(mp.isPlaying())
                 {
                     mp.stop();}
-                Intent intent=new Intent(getApplicationContext(),Login.class);
+                Intent intent=new Intent(getApplicationContext(),StudentProfile.class);
                 startActivity(intent);
                 finish();//taaki back button press krne pe dubaara splash screen pe na jaaye
 
