@@ -1,10 +1,12 @@
 package com.uuu.tutionattendace;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.PopupMenu;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -20,7 +22,7 @@ import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class Login extends AppCompatActivity implements View.OnClickListener {
+public class Login extends AppCompatActivity implements View.OnClickListener , PopupMenu.OnMenuItemClickListener {
 
     ProgressBar p;
     Button go, forgetpass;
@@ -86,6 +88,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         return TextUtils.isEmpty(str);
     }
 
+
     public  class LoginDb extends AsyncTask<Void,Void,String> {
         String result="";
 
@@ -137,6 +140,32 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             }
             super.onPostExecute(s);
         }
+    }
+
+    public void showPopUp(View v){
+        PopupMenu pop= new PopupMenu(this,v);
+        pop.setOnMenuItemClickListener(this);
+        pop.inflate(R.menu.loginas_menu);
+        pop.show();
+    }
+
+
+    @Override
+    public boolean onMenuItemClick(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.Ladmin:
+                Toast.makeText(this,"Logged as Admin", Toast.LENGTH_SHORT).show();
+                return true;
+
+            case R.id.Lteacher:
+                Toast.makeText(this,"Logged as Teacher", Toast.LENGTH_SHORT).show();
+                return true;
+
+            case R.id.Lstudent:
+                Toast.makeText(this,"Logged as Student", Toast.LENGTH_SHORT).show();
+                return true;
+        }
+        return false;
     }
 
 }

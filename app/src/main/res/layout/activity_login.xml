@@ -16,7 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Tution Center Name"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="50dp"
             android:layout_marginBottom="30dp"
             android:textColor="#000000"
             android:textSize="30dp"/>
@@ -64,7 +64,20 @@
 
                 </com.google.android.material.textfield.TextInputEditText>
 
+
             </com.google.android.material.textfield.TextInputLayout>
+
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="LoginAs"
+                android:background="#fff"
+
+                >
+
+            </Button>
+
 
 
             <Button
