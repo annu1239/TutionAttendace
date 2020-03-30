@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_person_outline_black_24dp"
+            android:title="Personal info" />
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/ic_library_books_black_24dp"
+            android:title="Teachers" />
+        <item
+            android:id="@+id/nav_slideshow"
+            android:icon="@drawable/ic_class_black_24dp"
+            android:title="Batches" />
+        <item
+            android:id="@+id/nav_fourthFrag"
+            android:icon="@drawable/ic_check_circle_black_24dp"
+            android:title="Attendence" />
+    </group>
+</menu>
