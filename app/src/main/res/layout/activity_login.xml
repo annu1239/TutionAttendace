@@ -69,14 +69,14 @@
 
 
             <Button
+                android:id="@+id/loginas"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="LoginAs"
-                android:background="#fff"
+                android:text="Login As"
+                android:background="#fff"/>
 
-                >
 
-            </Button>
+
 
 
 

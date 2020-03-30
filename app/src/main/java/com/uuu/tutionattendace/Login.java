@@ -25,7 +25,7 @@ import java.net.URL;
 public class Login extends AppCompatActivity implements View.OnClickListener , PopupMenu.OnMenuItemClickListener {
 
     ProgressBar p;
-    Button go, forgetpass;
+    Button go, forgetpass,loginAs;
     TextInputLayout username,password;
     String user,pass;
 
@@ -39,8 +39,10 @@ public class Login extends AppCompatActivity implements View.OnClickListener , P
         password=findViewById(R.id.password);
         go=findViewById(R.id.go);
         forgetpass =findViewById(R.id.forgetPass);
+        loginAs=findViewById(R.id.loginas);
 
         forgetpass.setOnClickListener(this);
+        loginAs.setOnClickListener(this);
         go.setOnClickListener(this);
 
     }
@@ -52,6 +54,10 @@ public class Login extends AppCompatActivity implements View.OnClickListener , P
 
             case R.id.forgetPass:
                 Toast.makeText(getApplicationContext(), "Link is sended to Your Registered email", Toast.LENGTH_SHORT).show();
+                break;
+
+            case R.id.loginas:
+               showPopUp(v);
                 break;
 
             case R.id.go:
