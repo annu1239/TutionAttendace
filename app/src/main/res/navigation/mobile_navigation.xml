@@ -46,4 +46,10 @@
         android:name="com.uuu.tutionattendace.fourthFrag"
         android:label="Attendence"
         tools:layout="@layout/fragment_fourth" />
+
+    <fragment
+        android:id="@+id/nav_fifthFrag"
+        android:name="com.uuu.tutionattendace.fifthFrag"
+        android:label="Settings"
+        tools:layout="@layout/fragment_fifth" />
 </navigation>
