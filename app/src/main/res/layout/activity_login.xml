@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#fff"
+    android:padding="20dp"
+    tools:context=".Login">
+
+
+
+        <TextView
+            android:id="@+id/tutionName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tution Center Name"
+            android:layout_marginTop="100dp"
+            android:layout_marginBottom="30dp"
+            android:textColor="#000000"
+            android:textSize="30dp"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:orientation="vertical">
+
+            <!---edittext for user-->
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/username"
+                android:hint="Username"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                </com.google.android.material.textfield.TextInputEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!---edittext for password-->
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/password"
+                android:hint="Password"
+                app:passwordToggleEnabled="true"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword">
+
+                </com.google.android.material.textfield.TextInputEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <Button
+                android:id="@+id/forgetPass"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="Forget Password?"
+                android:background="#00000000"
+                android:layout_margin="5dp"
+                android:layout_gravity="right"
+                android:elevation="0dp"/>
+
+
+            <ProgressBar
+                android:id="@+id/Lprogressbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:visibility="invisible"
+                />
+
+            <Button
+                android:id="@+id/go"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Go"
+                android:background="#000"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:textColor="#fff"/>
+
+            <ProgressBar
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/progressBar"
+                android:visibility="invisible"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
