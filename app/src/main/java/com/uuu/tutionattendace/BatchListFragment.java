@@ -12,9 +12,9 @@ import android.view.ViewGroup;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class TeacherFragment extends Fragment {
+public class BatchListFragment extends Fragment {
 
-    public TeacherFragment() {
+    public BatchListFragment() {
         // Required empty public constructor
     }
 
@@ -23,6 +23,6 @@ public class TeacherFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_teacher, container, false);
+        return inflater.inflate(R.layout.fragment_batch_list, container, false);
     }
 }
