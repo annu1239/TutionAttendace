@@ -53,6 +53,7 @@ public class TeacherAdd extends AppCompatActivity {
     String Tname, Tmail, Tcontact, Tadd, Tbatches, Tpass,Tconfirmpass;
     String[] Blist;//Batches list
     boolean[] checkedBatches;
+    String url="http://13.59.204.100/android/tadd.php?username=himanshi&password=him&email=h&contact=456787&address=hjk&batch=1";
     ArrayList<Integer> b =new ArrayList<>();
 
     @Override
