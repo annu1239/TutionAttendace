@@ -201,7 +201,7 @@ public class StudentAdd extends AppCompatActivity {
         protected String doInBackground(Void... voids) {
 
             try {
-                URL url = new URL("\n" + "http://13.59.204.100/android/index.php?name=" + name + "&password=" + password + "&confirmpassword="+ confirmpassword+"&contact="  + contact + "&email=" + email + "&batch=" + batch + "&address=" + address + "&fathersname=" + fathersname + "&fatherscontact=" + fatherscontact);
+                URL url = new URL("\n" + "http://13.59.204.100/android/sadd.php?username=" + name + "&password=" + password + "&confirmpassword="+ confirmpassword+"&contact="  + contact + "&email=" + email + "&batch=" + batch + "&address=" + address + "&fathersname=" + fathersname + "&fatherscontact=" + fatherscontact);
 
                 //URL is used to fetch data from any server
 
