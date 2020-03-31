@@ -5,10 +5,29 @@
     android:layout_height="match_parent"
     tools:context=".BatchListFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="horizontal">
 
+        <Button
+            android:id="@+id/btnDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:padding="5dp"
+            android:text="Details"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/btnAttendance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:padding="5dp"
+            android:text="Attendance"
+            android:textSize="30sp" />
+    </LinearLayout>
 </FrameLayout>

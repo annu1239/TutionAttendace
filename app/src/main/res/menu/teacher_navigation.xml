@@ -6,4 +6,16 @@
         android:orderInCategory="100"
         android:title="@string/action_settings"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/navInfo"
+        android:icon="@drawable/ic_person_outline_black_24dp"
+        android:title="Personal Info" />
+    <item
+        android:id="@+id/navBatchList"
+        android:icon="@drawable/ic_class_black_24dp"
+        android:title="Batch List" />
+    <item
+        android:id="@+id/navSettings"
+        android:icon="@drawable/ic_build_black_24dp"
+        android:title="Settings"/>
 </menu>
