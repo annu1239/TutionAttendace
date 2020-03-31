@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".StudentBT"></activity>
+        <activity android:name=".Teacher2stu"></activity>
+        <activity android:name=".StudentBT" />
         <activity android:name=".BatchT" />
         <activity
             android:name=".TeacherNavigation"
