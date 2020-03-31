@@ -2,6 +2,7 @@ package com.uuu.tutionattendace;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -53,7 +54,7 @@ public class TeacherAdd extends AppCompatActivity {
     String Tname, Tmail, Tcontact, Tadd, Tbatches, Tpass,Tconfirmpass;
     String[] Blist;//Batches list
     boolean[] checkedBatches;
-    String url="http://13.59.204.100/android/tadd.php?username=himanshi&password=him&email=h&contact=456787&address=hjk&batch=1";
+    String url="";
     ArrayList<Integer> b =new ArrayList<>();
 
     @Override
@@ -72,6 +73,7 @@ public class TeacherAdd extends AppCompatActivity {
                 Tpassword =findViewById(R.id.Tpassword);
                 Tconfirmpassword =findViewById(R.id.Tconfirmword);
                 Tregister =findViewById(R.id.Tregister);
+
 
 //        Blist = getResources().getStringArray(R.array.batchesList);
 //        checkedBatches = new boolean[Blist.length];
@@ -135,6 +137,7 @@ public class TeacherAdd extends AppCompatActivity {
 //            }
 //        });
 
+
                 Tregister.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -144,9 +147,8 @@ public class TeacherAdd extends AppCompatActivity {
                         Tadd =Taddress.getEditText().getText().toString();
                         Tpass = Tpassword.getEditText().getText().toString();
                         Tconfirmpass= Tconfirmpassword.getEditText().getText().toString();
-
+                       // Tbatches=Tbatcheslist.getEditText().getText().toString();//jb button pe click krke chrck box bnenge ye unke text ko access krega
                         checkDataEntered();
-
                     }
                 });
 
@@ -157,10 +159,6 @@ public class TeacherAdd extends AppCompatActivity {
 
                 if(Tfullname.getEditText().getText().toString().trim().length()>1){
                     Tfullname.setError(null);
-                }
-
-                if(isEmail(Temail)){
-                    Temail.setError(null);
                 }
 
                 if(Taddress.getEditText().getText().toString().trim().length()>1){
@@ -183,6 +181,8 @@ public class TeacherAdd extends AppCompatActivity {
                     Taddress.setError(null);
                 }
 
+
+                //setError
                 if(isEmpty(Tfullname)){
                     Tfullname.setError("fullname is required");
                 }
@@ -190,22 +190,38 @@ public class TeacherAdd extends AppCompatActivity {
                 if(isEmpty(Tpassword)){
                     Tpassword.setError("Password is required");
                 }
+                if(isEmpty(Tconfirmpassword)){
+                    Tconfirmpassword.setError("Enter Password to confirm");
+                }
+                if(isEmpty(Taddress)){
+                    Taddress.setError("Address is required");
+                }
+//                if(isEmpty(Tcontactno)){
+//                    Tcontactno.setError("Contact Number is required");
+//                }
+                if(!isValidPhoneNumber(Tcontactno)){
+                    Tcontactno.setError("Enter Valid Contact Number");
+                }
 
                 if(!isEmail(Temail)){
                     Temail.setError("Enter valid Email");
                 }
+
                 if(isEmpty(Tfullname)&&isEmpty(Temail)&&isEmpty(Tconfirmpassword)&&isEmpty(Tcontactno)&&isEmpty(Tpassword)&&isEmpty(Taddress)) {
                     Toast.makeText(getApplicationContext(), "Please fill all Information", Toast.LENGTH_SHORT).show();
                 }
-                else{
+                if(!isValidPass()){
+                Tpassword.setError("Enter Valid Pass");
+                Tconfirmpassword.setError("Enter Valid Pass");}
 
-                    new TeacherDb().execute();
+                //setError null
+                else{
+                            new TeacherDb().execute();
+                    }
+
                 }
 
-            }
-
-
-            boolean isEmail(TextInputLayout text){
+                boolean isEmail(TextInputLayout text){
                 CharSequence email= text.getEditText().getText().toString();
                 //dont use third party validations
                 return (!TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches());//patterns can use for contact ip and other inputs
@@ -234,14 +250,27 @@ public class TeacherAdd extends AppCompatActivity {
                 return TextUtils.isEmpty(str);
 
             }
+            public boolean isValidPass(){
+                if(Tconfirmpass.equals(Tpass)){
+                    return true;
+                }else{
+                    return false;
+
+                }
+            }
 
             public  class TeacherDb extends AsyncTask<Void,Void,String> {
+
                 String result="";
 
                 @Override
                 protected void onPreExecute() {
                     Tfullname.setError(null);
                     Tpassword.setError(null);
+                    Tconfirmpassword.setError(null);
+                    Taddress.setError(null);
+                    Tcontactno.setError(null);
+                    Temail.setError(null);
                     p=findViewById(R.id.TprogressBar);
                     p.setVisibility(View.VISIBLE);
                     super.onPreExecute();
@@ -249,25 +278,12 @@ public class TeacherAdd extends AppCompatActivity {
 
                 @Override
                 protected String doInBackground(Void... voids) {
-                    try {
-                        //Ip ->ip
-                        URL url = new URL("http://http:// IP //android/index.php?username="+Tname+"&password="+Tpass+"&email="+Tmail+"&contact="+Tcontact);
-                        InputStream stream=url.openConnection().getInputStream();
-                        InputStreamReader ir = new InputStreamReader(stream);
-                        BufferedReader br = new BufferedReader(ir);
-                        String line="";
+                    url = "http://13.59.204.100/android/tadd.php?username="+Tname+"&password="+Tpass+"&email="+Tmail+"&contact="+Tcontact+"&address="+Tadd+"&batch=6";
+                    HttpHandlerPost hp =new HttpHandlerPost();
+                    result=hp.makeServiceCall(url);
 
-                        while ((line=br.readLine())!=null){
-                            result=result+line+"\n";
-                        }
-
-
-                    } catch (MalformedURLException e) {
-                        e.printStackTrace();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
                     return result;
+
                 }
 
                 @Override
@@ -280,10 +296,25 @@ public class TeacherAdd extends AppCompatActivity {
                     }
                     String data=s.trim();
                     if(data.matches("true")){
-                        Toast.makeText(getApplicationContext(), "Valid User", Toast.LENGTH_SHORT).show();
-                    }else{
-                        Toast.makeText(getApplicationContext(), "InValid User !!", Toast.LENGTH_SHORT).show();
+
+
+                        Intent i= new Intent(getApplicationContext(),showTeacherList.class);
+                        i.putExtra("TeacherName",Tname);
+                        i.putExtra("TeacherPhnNo",Tcontact);
+                        startActivity(i);
+                        Toast.makeText(getApplicationContext(), "Teacher Registred ", Toast.LENGTH_SHORT).show();
+
                     }
+                    else{
+                        Toast.makeText(getApplicationContext(), "InValid Information !!", Toast.LENGTH_SHORT).show();
+                    }
+                    Tfullname.getEditText().setText("");
+                    Temail.getEditText().setText("");
+                    Tcontactno.getEditText().setText("");
+                    Taddress.getEditText().setText("");
+                    Tpassword.getEditText().setText("");
+                    Tconfirmpassword.getEditText().setText("");
+
                     super.onPostExecute(s);
                 }
             }

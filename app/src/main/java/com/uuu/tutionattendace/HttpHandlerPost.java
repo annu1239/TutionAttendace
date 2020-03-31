@@ -9,13 +9,13 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class HttpHandler {
+public class HttpHandlerPost {
 
     //it's a class httphandler-> it is used to process our http requests
 
-    private static final String TAG = HttpHandler.class.getName();//used in logcat for debugging purpose
+    private static final String TAG = HttpHandlerPost.class.getName();//used in logcat for debugging purpose
 
-    public HttpHandler(){ }
+    public HttpHandlerPost(){ }
 
     public String makeServiceCall(String reqUrl){
         String response=null;
@@ -23,7 +23,7 @@ public class HttpHandler {
             URL url=new URL(reqUrl);
            // HttpURLConnection => it is used to make single request
             HttpURLConnection conn= (HttpURLConnection) url.openConnection();
-            conn.setRequestMethod("GET");//it tells connection is of type get
+            conn.setRequestMethod("POST");//it tells connection is of type Post
 
             //read the sequesnce
             InputStream in = new BufferedInputStream(conn.getInputStream());
