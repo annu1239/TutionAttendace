@@ -15,34 +15,6 @@ import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.ArrayList;
-
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.AsyncTask;
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Patterns;
-import android.view.View;
-import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.ProgressBar;
-import android.widget.Toast;
-
-import com.google.android.material.textfield.TextInputLayout;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
 
 
@@ -298,7 +270,7 @@ public class TeacherAdd extends AppCompatActivity {
                     if(data.matches("true")){
 
 
-                        Intent i= new Intent(getApplicationContext(),showTeacherList.class);
+                        Intent i= new Intent(getApplicationContext(), TeacherList.class);
                         i.putExtra("TeacherName",Tname);
                         i.putExtra("TeacherPhnNo",Tcontact);
                         startActivity(i);
